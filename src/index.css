@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Inter Tight', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --background: 40 7% 95%;
+    --foreground: 0 0% 4%;
+    --card: 40 7% 97%;
+    --card-foreground: 0 0% 4%;
+    --popover: 40 7% 95%;
+    --popover-foreground: 0 0% 4%;
+    --primary: 222 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 4% 88%;
+    --secondary-foreground: 0 0% 4%;
+    --muted: 40 4% 90%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 14 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 14 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 4% 82%;
+    --input: 40 4% 82%;
+    --ring: 222 100% 50%;
+    --chart-1: 222 100% 50%;
+    --chart-2: 14 100% 50%;
+    --chart-3: 0 0% 30%;
+    --chart-4: 40 7% 70%;
+    --chart-5: 222 60% 70%;
+    --radius: 0.25rem;
+    --sidebar-background: 40 7% 93%;
+    --sidebar-foreground: 0 0% 4%;
+    --sidebar-primary: 222 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 4% 88%;
+    --sidebar-accent-foreground: 0 0% 4%;
+    --sidebar-border: 40 4% 82%;
+    --sidebar-ring: 222 100% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 40 7% 95%;
+    --card: 0 0% 8%;
+    --card-foreground: 40 7% 95%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 40 7% 95%;
+    --primary: 222 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 40 7% 95%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 40 4% 60%;
+    --accent: 14 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 14 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 222 100% 55%;
+    --chart-1: 222 100% 55%;
+    --chart-2: 14 100% 50%;
+    --chart-3: 40 7% 70%;
+    --chart-4: 0 0% 40%;
+    --chart-5: 222 60% 70%;
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 40 7% 95%;
+    --sidebar-primary: 222 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 40 7% 95%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 222 100% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-heading);
+    cursor: none;
+  }
+  a, button, [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(222 100% 50% / 0.3);
+  border-radius: 2px;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Pulse line animation */
+@keyframes pulse-line {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100vw); opacity: 0; }
+}
+
+.animate-pulse-line {
+  animation: pulse-line 3s ease-in-out infinite;
+}
+
+/* Clip path assembly animation */
+@keyframes assemble {
+  0% { clip-path: inset(50% 50% 50% 50%); }
+  100% { clip-path: inset(0% 0% 0% 0%); }
+}
+
+.animate-assemble {
+  animation: assemble 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
