@@ -56,11 +56,10 @@ export default function AboutSection({ aboutImage }) {
             </p>
 
             {/* Metrics grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-border pt-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-border pt-8">
               {[
                 { value: '8+', label: 'Years Experience' },
-                { value: '5', label: 'Platforms Built' },
-                { value: '200+', label: 'Spark Jobs Owned' },
+                { value: '1000+', label: 'Spark Jobs Managed' },
                 { value: '30%+', label: 'Cost Saved' },
               ].map(m => (
                 <div key={m.label}>
