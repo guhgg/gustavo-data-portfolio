@@ -139,11 +139,9 @@ export default function HeroSection({ heroImage }) {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="font-heading font-900 text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.05] tracking-tight"
             >
-              Architecting
+              Gustavo
               <br />
-              <span className="text-primary">Scalable Data</span>
-              <br />
-              Ecosystems
+              <span className="text-primary">Anjos Souza</span>
             </motion.h1>
 
             {/* Subheadline */}
@@ -153,8 +151,8 @@ export default function HeroSection({ heroImage }) {
               transition={{ delay: 0.6, duration: 0.6 }}
               className="mt-6 font-mono text-sm text-muted-foreground leading-relaxed max-w-md"
             >
-              Designing high-throughput data pipelines, distributed systems,
-              and cloud-native infrastructure at petabyte scale.
+              Senior Data Platform Engineer. Building high-throughput data pipelines,
+              ML infrastructure, and cloud-native platforms at petabyte scale.
             </motion.p>
 
             {/* Metrics */}
@@ -165,9 +163,9 @@ export default function HeroSection({ heroImage }) {
               className="mt-10 flex gap-8"
             >
               {[
-                { value: '15+', label: 'PB Processed' },
-                { value: '99.97%', label: 'Uptime SLA' },
-                { value: '< 50ms', label: 'P99 Latency' },
+                { value: '200+', label: 'Concurrent Spark Jobs' },
+                { value: '< 20ms', label: 'P99 Serving Latency' },
+                { value: '30%+', label: 'Cost Saved' },
               ].map(m => (
                 <div key={m.label}>
                   <div className="font-heading font-800 text-2xl md:text-3xl text-primary">

@@ -31,7 +31,7 @@ export default function AboutSection({ aboutImage }) {
               className="w-full animate-assemble"
             />
             <div className="absolute bottom-3 left-3 font-mono text-[9px] text-muted-foreground/50 tracking-wider">
-              IMG.TEXTURE // HARDWARE.REF
+              SYS.ARCH // DATA.PLATFORM
             </div>
           </motion.div>
 

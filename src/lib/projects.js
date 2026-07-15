@@ -3,14 +3,14 @@ const PROJECT_IMAGE = 'https://images.unsplash.com/photo-1639322537228-f710d8463
 export const PROJECTS = [
   {
     title: 'ML Feature Store Platform',
-    description: 'A company-wide Feature Store platform built from scratch to serve as the central data layer for machine learning across the entire organization — ensuring consistency across models, eliminating duplicated logic, and making features reusable across teams.',
+    description: 'Company-wide ML Feature Store built from scratch at iFood (80% of Brazilian food delivery market, 320K restaurants, 100 ML models in production) — the central data layer serving 17+ squads across fraud, recommendations, logistics, and fintech. Featured as a Redis Cloud customer case study.',
     input: 'Kafka, Delta Lake',
-    throughput: 'Hundreds of Spark jobs',
+    throughput: '200+ concurrent Spark jobs',
     latency: '< 20ms P99',
-    status: 'Production',
+    status: 'Production · Redis Case Study',
     stack: ['Scala', 'Java', 'Python', 'Go', 'Apache Spark', 'Apache Kafka', 'Delta Lake', 'Redis', 'PostgreSQL', 'Kubernetes', 'AWS (EKS, S3, SNS)', 'Databricks', 'Terraform'],
     image: PROJECT_IMAGE,
-    overview: 'A company-wide Feature Store platform built from scratch to serve as the central data layer for machine learning across the entire organization. Instead of every team computing their own aggregations in isolation, the platform provides a single place to declare, compute, store, and serve features — ensuring consistency across models, eliminating duplicated logic, and making features reusable across teams. The platform processes petabytes of data daily through hundreds of concurrent Spark jobs, covering domains including fraud detection, recommendations, logistics, and fintech. Features are served online at under 20ms p99 latency and offline for model training with point-in-time correctness to prevent data leakage. The platform is composed of nine interconnected components: the Aggregation Engine (Scala + Spark on Databricks supporting three latency tiers — batch, near-real-time with exactly-once via RocksDB checkpoints, and real-time Kafka → Redis), the Control Plane (a Python/FastAPI service backed by PostgreSQL managing feature metadata and lifecycle state machines), the Online Serving API (a Go service with pipelined Redis reads horizontally scalable to handle peak load), a Python SDK for ML teams (online HTTP consumption + offline point-in-time joins against the historical Delta Lake table), Features IaC (a Git monorepo with automated CI checks, smoke tests, and domain-owner approval routing), a Backfill Orchestrator (a Kubernetes CronJob polling the control plane for pending pipeline runs), a Staleness Monitor (a daily CronJob checking every feature generator for staleness and routing alerts to the responsible squad), an Observability Bridge (receiving monitoring alert webhooks and translating them back into control plane state transitions), and a Cost & QoS Pipeline (a daily pipeline producing cost and QoS attribution reports per feature and per consuming team).',
+    overview: 'Built from scratch at iFood — Brazil\'s largest food delivery platform with 80% market share, 320,000 restaurants, and 100 ML models in production. The Feature Store became the central ML data layer serving 17+ squads across fraud, recommendations, logistics, and fintech. The platform runs 200+ concurrent Spark jobs processing petabytes of data daily, with online serving at under 20ms p99 latency. Featured in the official Redis Cloud customer case study. The platform unified three latency tiers under a single aggregation model: real-time (sub-second, Kafka to Redis), near-real-time (Spark Structured Streaming with RocksDB exactly-once recovery), and batch. Materialization targets are fully decoupled — Redis Enterprise Cloud for online serving, Delta Lake for offline training with point-in-time correctness, and Kafka for event-driven consumers.',
     challenges: [
       'Supporting three latency tiers (batch, near-real-time, real-time) under a single aggregation model',
       'Guaranteeing exactly-once processing in Spark Structured Streaming via RocksDB checkpoints',
@@ -19,12 +19,12 @@ export const PROJECTS = [
       'Attributing Redis and compute cost per feature and per consuming squad for chargeback',
     ],
     outcomes: [
-      { value: '17+', label: 'Squads onboarded' },
-      { value: '33', label: 'Business domains' },
+      { value: '320K', label: 'Restaurants on platform' },
+      { value: '100', label: 'ML models in production' },
+      { value: '80%', label: 'Brazilian food delivery market' },
       { value: '200+', label: 'Concurrent Spark jobs' },
       { value: '< 20ms', label: 'P99 online serving' },
-      { value: 'PBs/day', label: 'Data processed' },
-      { value: '9', label: 'CI checks per PR' },
+      { value: '17+', label: 'ML squads served' },
     ],
     nodes: [
       { x: 10, y: 15, label: 'IaC', w: 30 },
