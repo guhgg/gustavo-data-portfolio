@@ -141,7 +141,7 @@ export default function HeroSection({ heroImage }) {
             >
               Gustavo
               <br />
-              <span className="text-primary">Anjos Souza</span>
+              <span className="text-primary">Souza</span>
             </motion.h1>
 
             {/* Subheadline */}

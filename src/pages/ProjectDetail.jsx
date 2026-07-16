@@ -143,7 +143,7 @@ export default function ProjectDetail() {
             <h2 className="font-heading font-700 text-2xl">Architecture Diagram</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
-          <div className="border border-border bg-[#0a0a14] p-6 overflow-x-auto rounded-sm">
+          <div className="border border-border bg-secondary/30 p-6 overflow-x-auto rounded-sm">
             <svg viewBox="0 0 800 300" className="w-full min-w-[600px]">
               <defs>
                 <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
