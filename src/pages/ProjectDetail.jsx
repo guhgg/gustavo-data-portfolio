@@ -143,24 +143,87 @@ export default function ProjectDetail() {
             <h2 className="font-heading font-700 text-2xl">Architecture Diagram</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
-          <div className="border border-border bg-foreground/[0.02] p-8">
-            <svg viewBox="0 0 800 320" className="w-full">
+          <div className="border border-border bg-[#0a0a14] p-6 overflow-x-auto rounded-sm">
+            <svg viewBox="0 0 800 300" className="w-full min-w-[600px]">
+              <defs>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0,0 L0,6 L8,3 z" fill="hsl(222, 100%, 65%)" opacity="0.8" />
+                </marker>
+              </defs>
+
+              {/* Groups first (background) */}
+              {project.diagram.groups && project.diagram.groups.map((g, i) => (
+                <g key={i}>
+                  <rect
+                    x={g.x} y={g.y}
+                    width={g.w} height={g.h}
+                    fill="hsl(222, 60%, 12%)"
+                    fillOpacity="0.5"
+                    stroke="hsl(222, 100%, 50%)"
+                    strokeWidth="0.8"
+                    strokeDasharray="5,4"
+                    rx="4"
+                  />
+                  <text
+                    x={g.x + 10} y={g.y + 13}
+                    fill="hsl(222, 100%, 70%)"
+                    fontSize="7.5"
+                    fontFamily="JetBrains Mono, monospace"
+                    fontWeight="600"
+                    letterSpacing="0.5"
+                    opacity="0.8"
+                  >
+                    {g.label}
+                  </text>
+                </g>
+              ))}
+
+              {/* Edges */}
+              {project.diagram.edges.map((edge, i) => (
+                <g key={i}>
+                  <line
+                    x1={edge.x1} y1={edge.y1}
+                    x2={edge.x2} y2={edge.y2}
+                    stroke="hsl(222, 100%, 65%)"
+                    strokeWidth="1.2"
+                    strokeDasharray={edge.dashed ? "5,4" : "0"}
+                    opacity="0.6"
+                    markerEnd="url(#arrow)"
+                  />
+                  {edge.label && (
+                    <text
+                      x={(edge.x1 + edge.x2) / 2}
+                      y={(edge.y1 + edge.y2) / 2 - 4}
+                      textAnchor="middle"
+                      fill="hsl(222, 100%, 75%)"
+                      fontSize="7"
+                      fontFamily="JetBrains Mono, monospace"
+                      opacity="0.9"
+                    >
+                      {edge.label}
+                    </text>
+                  )}
+                </g>
+              ))}
+
+              {/* Nodes (on top) */}
               {project.diagram.nodes.map((node, i) => (
                 <g key={i}>
                   <rect
                     x={node.x} y={node.y}
                     width={node.w || 100} height={node.h || 40}
-                    fill="none"
-                    stroke="hsl(222, 100%, 50%)"
+                    fill="hsl(222, 60%, 18%)"
+                    stroke="hsl(222, 100%, 55%)"
                     strokeWidth="1"
                     rx="3"
                   />
                   <text
                     x={node.x + (node.w || 100) / 2}
-                    y={node.y + (node.h || 40) / 2 - 5}
+                    y={node.y + (node.h || 40) / 2 - (node.sublabel ? 5 : 0)}
                     textAnchor="middle"
-                    fill="hsl(0, 0%, 4%)"
-                    fontSize="11"
+                    dominantBaseline={node.sublabel ? 'auto' : 'middle'}
+                    fill="hsl(0, 0%, 95%)"
+                    fontSize="10"
                     fontFamily="JetBrains Mono, monospace"
                     fontWeight="600"
                   >
@@ -169,68 +232,16 @@ export default function ProjectDetail() {
                   {node.sublabel && (
                     <text
                       x={node.x + (node.w || 100) / 2}
-                      y={node.y + (node.h || 40) / 2 + 10}
+                      y={node.y + (node.h || 40) / 2 + 9}
                       textAnchor="middle"
-                      fill="hsl(222, 100%, 50%)"
+                      fill="hsl(222, 100%, 70%)"
                       fontSize="8"
                       fontFamily="JetBrains Mono, monospace"
+                      opacity="0.9"
                     >
                       {node.sublabel}
                     </text>
                   )}
-                </g>
-              ))}
-              {project.diagram.edges.map((edge, i) => (
-                <g key={i}>
-                  <defs>
-                    <marker id={`arrow-${i}`} markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                      <path d="M0,0 L0,6 L6,3 z" fill="hsl(222, 100%, 50%)" opacity="0.5" />
-                    </marker>
-                  </defs>
-                  <line
-                    x1={edge.x1} y1={edge.y1}
-                    x2={edge.x2} y2={edge.y2}
-                    stroke="hsl(222, 100%, 50%)"
-                    strokeWidth="1"
-                    strokeDasharray={edge.dashed ? "5,4" : "0"}
-                    opacity="0.4"
-                    markerEnd={`url(#arrow-${i})`}
-                  />
-                  {edge.label && (
-                    <text
-                      x={(edge.x1 + edge.x2) / 2}
-                      y={(edge.y1 + edge.y2) / 2 - 5}
-                      textAnchor="middle"
-                      fill="hsl(0, 0%, 40%)"
-                      fontSize="8"
-                      fontFamily="JetBrains Mono, monospace"
-                    >
-                      {edge.label}
-                    </text>
-                  )}
-                </g>
-              ))}
-              {project.diagram.groups && project.diagram.groups.map((g, i) => (
-                <g key={i}>
-                  <rect
-                    x={g.x} y={g.y}
-                    width={g.w} height={g.h}
-                    fill="hsl(222, 100%, 50%)"
-                    fillOpacity="0.03"
-                    stroke="hsl(222, 100%, 50%)"
-                    strokeWidth="0.5"
-                    strokeDasharray="6,4"
-                    rx="4"
-                  />
-                  <text
-                    x={g.x + 8} y={g.y + 14}
-                    fill="hsl(222, 100%, 50%)"
-                    fontSize="8"
-                    fontFamily="JetBrains Mono, monospace"
-                    opacity="0.5"
-                  >
-                    {g.label}
-                  </text>
                 </g>
               ))}
             </svg>
