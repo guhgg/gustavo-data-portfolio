@@ -77,7 +77,7 @@ export default function AboutSection({ aboutImage }) {
             <div className="mt-10 space-y-4">
               {[
                 { period: '2025 — Present', role: 'Senior Data Platform Engineer', company: 'McGraw Hill' },
-                { period: '2021 — 2025', role: 'Machine Learning Engineer', company: 'iFood' },
+                { period: '2021 — 2025', role: 'Senior ML Engineer', company: 'iFood' },
                 { period: '2019 — 2021', role: 'Data Engineer', company: 'MadeiraMadeira' },
               ].map(exp => (
                 <div key={exp.period} className="flex items-baseline gap-4">
