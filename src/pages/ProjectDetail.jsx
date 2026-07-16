@@ -143,7 +143,7 @@ export default function ProjectDetail() {
             <h2 className="font-heading font-700 text-2xl">Architecture Diagram</h2>
             <div className="flex-1 h-px bg-border" />
           </div>
-          <div className="border border-border bg-secondary/30 p-6 overflow-x-auto rounded-sm">
+          <div className="border border-primary/20 bg-card p-6 overflow-x-auto rounded-sm">
             <svg viewBox="0 0 800 300" className="w-full min-w-[600px]">
               <defs>
                 <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
@@ -157,8 +157,8 @@ export default function ProjectDetail() {
                   <rect
                     x={g.x} y={g.y}
                     width={g.w} height={g.h}
-                    fill="hsl(222, 60%, 12%)"
-                    fillOpacity="0.5"
+                    fill="hsl(222, 100%, 50%)"
+                    fillOpacity="0.06"
                     stroke="hsl(222, 100%, 50%)"
                     strokeWidth="0.8"
                     strokeDasharray="5,4"
@@ -166,12 +166,11 @@ export default function ProjectDetail() {
                   />
                   <text
                     x={g.x + 10} y={g.y + 13}
-                    fill="hsl(222, 100%, 70%)"
+                    fill="hsl(222, 100%, 55%)"
                     fontSize="7.5"
                     fontFamily="JetBrains Mono, monospace"
-                    fontWeight="600"
-                    letterSpacing="0.5"
-                    opacity="0.8"
+                    fontWeight="700"
+                    letterSpacing="0.8"
                   >
                     {g.label}
                   </text>
@@ -190,18 +189,28 @@ export default function ProjectDetail() {
                     opacity="0.6"
                     markerEnd="url(#arrow)"
                   />
-                  {edge.label && (
-                    <text
-                      x={(edge.x1 + edge.x2) / 2}
-                      y={(edge.y1 + edge.y2) / 2 - 4}
-                      textAnchor="middle"
-                      fill="hsl(222, 100%, 75%)"
-                      fontSize="7"
-                      fontFamily="JetBrains Mono, monospace"
-                      opacity="0.9"
-                    >
-                      {edge.label}
-                    </text>
+                  {edge.label && edge.label.trim() !== '' && (
+                    <g>
+                      <rect
+                        x={(edge.x1 + edge.x2) / 2 - edge.label.length * 2.5}
+                        y={(edge.y1 + edge.y2) / 2 - 13}
+                        width={edge.label.length * 5}
+                        height={11}
+                        fill="hsl(var(--card))"
+                        rx="2"
+                      />
+                      <text
+                        x={(edge.x1 + edge.x2) / 2}
+                        y={(edge.y1 + edge.y2) / 2 - 5}
+                        textAnchor="middle"
+                        fill="hsl(222, 100%, 70%)"
+                        fontSize="7"
+                        fontFamily="JetBrains Mono, monospace"
+                        fontWeight="500"
+                      >
+                        {edge.label}
+                      </text>
+                    </g>
                   )}
                 </g>
               ))}
@@ -212,7 +221,7 @@ export default function ProjectDetail() {
                   <rect
                     x={node.x} y={node.y}
                     width={node.w || 100} height={node.h || 40}
-                    fill="hsl(222, 60%, 18%)"
+                    fill="hsl(222, 80%, 15%)"
                     stroke="hsl(222, 100%, 55%)"
                     strokeWidth="1"
                     rx="3"
