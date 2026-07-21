@@ -23,7 +23,7 @@ export default function ProjectsSection() {
 
         <div className="grid md:grid-cols-2 gap-6">
           {PROJECTS.map((project, i) => (
-            <Link key={i} to={`/project/${i}`} className="block group">
+            <Link key={i} to={`/project/${project.slug}`} className="block group">
               <ProjectCard project={project} index={i} />
             </Link>
           ))}

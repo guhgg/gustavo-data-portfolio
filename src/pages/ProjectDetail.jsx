@@ -8,8 +8,9 @@ import NavToggle from '../components/portfolio/NavToggle';
 import { PROJECTS } from '../lib/projects';
 
 export default function ProjectDetail() {
-  const { id } = useParams();
-  const project = PROJECTS[parseInt(id)];
+  const { slug } = useParams();
+  const project = PROJECTS.find(p => p.slug === slug);
+  const id = PROJECTS.findIndex(p => p.slug === slug);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
