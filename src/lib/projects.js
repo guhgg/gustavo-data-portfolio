@@ -90,7 +90,7 @@ export const PROJECTS = [
     },
   },
   {
-    title: 'McGraw Hill, Cluster Autopilot',
+    title: 'Cluster Autopilot',
     description: 'Automated Databricks cluster optimization system that continuously collects runtime metrics from every job, analyzes them over a window calibrated to each job\'s schedule, and applies the right cluster configuration and Spark tuning parameters, without human intervention. Saved over 30% of Databricks costs across 300+ jobs.',
     input: 'Databricks Jobs',
     throughput: '300+ jobs',
@@ -173,7 +173,7 @@ export const PROJECTS = [
     },
   },
   {
-    title: 'McGraw Hill, Spark Performance Agent',
+    title: 'Spark Performance Agent',
     description: 'An AI-powered agent that autonomously analyzes Databricks job performance every week, identifies the worst-performing jobs, and delivers actionable optimization reports with code-level recommendations directly to the team that owns each job, surfacing issues no cluster resize can fix.',
     input: 'Delta Table + Spark Plans',
     throughput: 'Top 5 jobs / week',
@@ -254,7 +254,7 @@ export const PROJECTS = [
     },
   },
   {
-    title: 'MadeiraMadeira, CDC Streaming Pipeline to Data Lake',
+    title: 'CDC Streaming Pipeline',
     description: 'Real-time Change Data Capture pipeline streaming every insert, update, and delete from MySQL, PostgreSQL, and MongoDB into a unified S3 data lake via Debezium, Kafka, and Apache Hudi, replacing nightly batch dumps with near-real-time eventual consistency.',
     input: 'MySQL, Postgres, MongoDB',
     throughput: 'Row-level CDC',
@@ -330,7 +330,7 @@ export const PROJECTS = [
     },
   },
   {
-    title: 'MadeiraMadeira, Scalable Airflow on AWS ECS Fargate',
+    title: 'Scalable Airflow on AWS ECS Fargate',
     description: 'Full re-architecture of MadeiraMadeira\'s Airflow platform, decomposing every component into isolated ECS Fargate containers with ephemeral per-DAG-run execution, delivering 60%+ cost reduction and a self-service DAG factory that cut pipeline creation time from 7 days to 3.',
     input: 'Git (Python/YAML)',
     throughput: 'Ephemeral per DAG',
