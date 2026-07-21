@@ -135,7 +135,7 @@ export default function TerminalContact() {
               </span>
               <div className="mt-4 space-y-3">
                 {[
-                  { protocol: 'EMAIL', value: 'gustavo42.sg@gmail.com' },
+                  { protocol: 'EMAIL', value: 'gustavo42.anjos@gmail.com' },
                   { protocol: 'LINKEDIN', value: 'linkedin.com/in/gustavo-anjos-souza/' },
                   { protocol: 'PHONE', value: '+55 (41) 99924-6192' },
                 ].map(c => (
