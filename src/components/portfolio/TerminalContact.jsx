@@ -9,10 +9,21 @@ export default function TerminalContact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    // Simulate send
-    await new Promise(r => setTimeout(r, 1500));
-    toast.success('Transmission received. Expect response within 24h.');
-    setForm({ name: '', email: '', message: '' });
+    try {
+      const res = await fetch('https://formspree.io/f/xdaqdykb', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name: form.name, email: form.email, message: form.message }),
+      });
+      if (res.ok) {
+        toast.success('Transmission received. Expect response within 24h.');
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        toast.error('Transmission failed. Please try again or email directly.');
+      }
+    } catch {
+      toast.error('Transmission failed. Please try again or email directly.');
+    }
     setSending(false);
   };
 
