@@ -137,6 +137,7 @@ export default function TerminalContact() {
                 {[
                   { protocol: 'EMAIL', value: 'gustavo42.anjos@gmail.com' },
                   { protocol: 'LINKEDIN', value: 'linkedin.com/in/gustavo-anjos-souza/' },
+                  { protocol: 'GITHUB', value: 'github.com/guhgg' },
                   { protocol: 'PHONE', value: '+55 (41) 99924-6192' },
                 ].map(c => (
                   <div key={c.protocol} className="flex items-baseline gap-4">
