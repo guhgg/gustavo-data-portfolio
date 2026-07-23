@@ -8,14 +8,14 @@ export const PROJECTS = [
   {
     title: 'ML Feature Store Platform',
     slug: 'ml-feature-store',
-    description: 'Company-wide ML Feature Store built from scratch at iFood (80% of Brazilian food delivery market, 320K restaurants, 100 ML models in production), the central data layer serving 17+ squads across fraud, recommendations, logistics, and fintech.',
+    description: 'Company-wide ML Feature Store at iFood (80% of Brazilian food delivery market, 320K restaurants, 100 ML models in production), the central data layer serving 17+ squads across fraud, recommendations, logistics, and fintech.',
     input: 'Kafka, Delta Lake',
     throughput: '200+ concurrent Spark jobs',
     latency: '< 20ms P99',
     status: 'Production',
     stack: ['Scala', 'Java', 'Python', 'Go', 'Apache Spark', 'Apache Kafka', 'Delta Lake', 'Redis', 'PostgreSQL', 'Kubernetes', 'AWS (EKS, S3, SNS)', 'Databricks', 'Terraform'],
     image: FEATURE_STORE_IMAGE,
-    overview: 'Built from scratch at iFood, Brazil\'s largest food delivery platform with 80% market share, 320,000 restaurants, and 100 ML models in production. The Feature Store became the central ML data layer serving 17+ squads across fraud, recommendations, logistics, and fintech. The platform runs 200+ concurrent Spark jobs processing petabytes of data daily, with online serving at under 20ms p99 latency. The platform unified three latency tiers under a single aggregation model: real-time (sub-second, Kafka to Redis), near-real-time (Spark Structured Streaming with RocksDB exactly-once recovery), and batch. Materialization targets are fully decoupled, Redis Enterprise Cloud for online serving, Delta Lake for offline training with point-in-time correctness, and Kafka for event-driven consumers.',
+    overview: 'Built at iFood, Brazil\'s largest food delivery platform with 80% market share, 320,000 restaurants, and 100 ML models in production. The Feature Store became the central ML data layer serving 17+ squads across fraud, recommendations, logistics, and fintech. The platform runs 200+ concurrent Spark jobs processing petabytes of data daily, with online serving at under 20ms p99 latency. The platform unified three latency tiers under a single aggregation model: real-time (sub-second, Kafka to Redis), near-real-time (Spark Structured Streaming with RocksDB exactly-once recovery), and batch. Materialization targets are fully decoupled, Redis Enterprise Cloud for online serving, Delta Lake for offline training with point-in-time correctness, and Kafka for event-driven consumers.',
     challenges: [
       'Supporting three latency tiers (batch, near-real-time, real-time) under a single aggregation model',
       'Guaranteeing exactly-once processing in Spark Structured Streaming via RocksDB checkpoints',
